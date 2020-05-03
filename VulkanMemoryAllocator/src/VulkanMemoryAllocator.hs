@@ -50,7 +50,7 @@ module VulkanMemoryAllocator  ( createAllocator
                               , withDefragmentation
                               , defragmentationEnd
                               , beginDefragmentationPass
-                              , withDefragmentationPass
+                              , useDefragmentationPass
                               , endDefragmentationPass
                               , defragment
                               , bindBufferMemory
@@ -1634,8 +1634,8 @@ beginDefragmentationPass allocator context = liftIO . evalContT $ do
 -- favourite resource management library) as the first argument.
 -- To just extract the pair pass '(,)' as the first argument.
 --
-withDefragmentationPass :: forall io r . MonadIO io => Allocator -> DefragmentationContext -> (io (DefragmentationPassInfo) -> ((DefragmentationPassInfo) -> io ()) -> r) -> r
-withDefragmentationPass allocator context b =
+useDefragmentationPass :: forall io r . MonadIO io => Allocator -> DefragmentationContext -> (io (DefragmentationPassInfo) -> ((DefragmentationPassInfo) -> io ()) -> r) -> r
+useDefragmentationPass allocator context b =
   b (beginDefragmentationPass allocator context)
     (\(_) -> endDefragmentationPass allocator context)
 

@@ -5,7 +5,7 @@ module Vulkan.Extensions.VK_EXT_debug_utils  ( setDebugUtilsObjectNameEXT
                                              , queueEndDebugUtilsLabelEXT
                                              , queueInsertDebugUtilsLabelEXT
                                              , cmdBeginDebugUtilsLabelEXT
-                                             , cmdWithDebugUtilsLabelEXT
+                                             , cmdUseDebugUtilsLabelEXT
                                              , cmdEndDebugUtilsLabelEXT
                                              , cmdInsertDebugUtilsLabelEXT
                                              , createDebugUtilsMessengerEXT
@@ -438,8 +438,8 @@ cmdBeginDebugUtilsLabelEXT commandBuffer labelInfo = liftIO . evalContT $ do
 -- To just extract the pair pass '(,)' as the first argument.
 --
 -- Note that there is no inner resource
-cmdWithDebugUtilsLabelEXT :: forall io r . MonadIO io => CommandBuffer -> DebugUtilsLabelEXT -> (io () -> io () -> r) -> r
-cmdWithDebugUtilsLabelEXT commandBuffer pLabelInfo b =
+cmdUseDebugUtilsLabelEXT :: forall io r . MonadIO io => CommandBuffer -> DebugUtilsLabelEXT -> (io () -> io () -> r) -> r
+cmdUseDebugUtilsLabelEXT commandBuffer pLabelInfo b =
   b (cmdBeginDebugUtilsLabelEXT commandBuffer pLabelInfo)
     (cmdEndDebugUtilsLabelEXT commandBuffer)
 

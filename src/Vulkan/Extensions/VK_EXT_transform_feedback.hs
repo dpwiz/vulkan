@@ -1,10 +1,10 @@
 {-# language CPP #-}
 module Vulkan.Extensions.VK_EXT_transform_feedback  ( cmdBindTransformFeedbackBuffersEXT
                                                     , cmdBeginTransformFeedbackEXT
-                                                    , cmdWithTransformFeedbackEXT
+                                                    , cmdUseTransformFeedbackEXT
                                                     , cmdEndTransformFeedbackEXT
                                                     , cmdBeginQueryIndexedEXT
-                                                    , cmdWithQueryIndexedEXT
+                                                    , cmdUseQueryIndexedEXT
                                                     , cmdEndQueryIndexedEXT
                                                     , cmdDrawIndirectByteCountEXT
                                                     , PhysicalDeviceTransformFeedbackFeaturesEXT(..)
@@ -397,8 +397,8 @@ cmdBeginTransformFeedbackEXT commandBuffer firstCounterBuffer counterBuffers cou
 -- To just extract the pair pass '(,)' as the first argument.
 --
 -- Note that there is no inner resource
-cmdWithTransformFeedbackEXT :: forall io r . MonadIO io => CommandBuffer -> Word32 -> Vector Buffer -> Vector DeviceSize -> (io () -> io () -> r) -> r
-cmdWithTransformFeedbackEXT commandBuffer firstCounterBuffer pCounterBuffers pCounterBufferOffsets b =
+cmdUseTransformFeedbackEXT :: forall io r . MonadIO io => CommandBuffer -> Word32 -> Vector Buffer -> Vector DeviceSize -> (io () -> io () -> r) -> r
+cmdUseTransformFeedbackEXT commandBuffer firstCounterBuffer pCounterBuffers pCounterBufferOffsets b =
   b (cmdBeginTransformFeedbackEXT commandBuffer firstCounterBuffer pCounterBuffers pCounterBufferOffsets)
     (cmdEndTransformFeedbackEXT commandBuffer firstCounterBuffer pCounterBuffers pCounterBufferOffsets)
 
@@ -737,8 +737,8 @@ cmdBeginQueryIndexedEXT commandBuffer queryPool query flags index = liftIO $ do
 -- To just extract the pair pass '(,)' as the first argument.
 --
 -- Note that there is no inner resource
-cmdWithQueryIndexedEXT :: forall io r . MonadIO io => CommandBuffer -> QueryPool -> Word32 -> QueryControlFlags -> Word32 -> (io () -> io () -> r) -> r
-cmdWithQueryIndexedEXT commandBuffer queryPool query flags index b =
+cmdUseQueryIndexedEXT :: forall io r . MonadIO io => CommandBuffer -> QueryPool -> Word32 -> QueryControlFlags -> Word32 -> (io () -> io () -> r) -> r
+cmdUseQueryIndexedEXT commandBuffer queryPool query flags index b =
   b (cmdBeginQueryIndexedEXT commandBuffer queryPool query flags index)
     (cmdEndQueryIndexedEXT commandBuffer queryPool query index)
 

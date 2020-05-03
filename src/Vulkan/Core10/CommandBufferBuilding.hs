@@ -34,14 +34,14 @@ module Vulkan.Core10.CommandBufferBuilding  ( cmdBindPipeline
                                             , cmdWaitEvents
                                             , cmdPipelineBarrier
                                             , cmdBeginQuery
-                                            , cmdWithQuery
+                                            , cmdUseQuery
                                             , cmdEndQuery
                                             , cmdResetQueryPool
                                             , cmdWriteTimestamp
                                             , cmdCopyQueryPoolResults
                                             , cmdPushConstants
                                             , cmdBeginRenderPass
-                                            , cmdWithRenderPass
+                                            , cmdUseRenderPass
                                             , cmdNextSubpass
                                             , cmdEndRenderPass
                                             , cmdExecuteCommands
@@ -6420,8 +6420,8 @@ cmdBeginQuery commandBuffer queryPool query flags = liftIO $ do
 -- To just extract the pair pass '(,)' as the first argument.
 --
 -- Note that there is no inner resource
-cmdWithQuery :: forall io r . MonadIO io => CommandBuffer -> QueryPool -> Word32 -> QueryControlFlags -> (io () -> io () -> r) -> r
-cmdWithQuery commandBuffer queryPool query flags b =
+cmdUseQuery :: forall io r . MonadIO io => CommandBuffer -> QueryPool -> Word32 -> QueryControlFlags -> (io () -> io () -> r) -> r
+cmdUseQuery commandBuffer queryPool query flags b =
   b (cmdBeginQuery commandBuffer queryPool query flags)
     (cmdEndQuery commandBuffer queryPool query)
 
@@ -7328,8 +7328,8 @@ cmdBeginRenderPass commandBuffer renderPassBegin contents = liftIO . evalContT $
 -- To just extract the pair pass '(,)' as the first argument.
 --
 -- Note that there is no inner resource
-cmdWithRenderPass :: forall a io r . (PokeChain a, MonadIO io) => CommandBuffer -> RenderPassBeginInfo a -> SubpassContents -> (io () -> io () -> r) -> r
-cmdWithRenderPass commandBuffer pRenderPassBegin contents b =
+cmdUseRenderPass :: forall a io r . (PokeChain a, MonadIO io) => CommandBuffer -> RenderPassBeginInfo a -> SubpassContents -> (io () -> io () -> r) -> r
+cmdUseRenderPass commandBuffer pRenderPassBegin contents b =
   b (cmdBeginRenderPass commandBuffer pRenderPassBegin contents)
     (cmdEndRenderPass commandBuffer)
 

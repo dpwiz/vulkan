@@ -1,7 +1,7 @@
 {-# language CPP #-}
 module Vulkan.Core12.Promoted_From_VK_KHR_create_renderpass2  ( createRenderPass2
                                                               , cmdBeginRenderPass2
-                                                              , cmdWithRenderPass2
+                                                              , cmdUseRenderPass2
                                                               , cmdNextSubpass2
                                                               , cmdEndRenderPass2
                                                               , AttachmentDescription2(..)
@@ -398,8 +398,8 @@ cmdBeginRenderPass2 commandBuffer renderPassBegin subpassBeginInfo = liftIO . ev
 -- To just extract the pair pass '(,)' as the first argument.
 --
 -- Note that there is no inner resource
-cmdWithRenderPass2 :: forall a io r . (PokeChain a, MonadIO io) => CommandBuffer -> RenderPassBeginInfo a -> SubpassBeginInfo -> SubpassEndInfo -> (io () -> io () -> r) -> r
-cmdWithRenderPass2 commandBuffer pRenderPassBegin pSubpassBeginInfo pSubpassEndInfo b =
+cmdUseRenderPass2 :: forall a io r . (PokeChain a, MonadIO io) => CommandBuffer -> RenderPassBeginInfo a -> SubpassBeginInfo -> SubpassEndInfo -> (io () -> io () -> r) -> r
+cmdUseRenderPass2 commandBuffer pRenderPassBegin pSubpassBeginInfo pSubpassEndInfo b =
   b (cmdBeginRenderPass2 commandBuffer pRenderPassBegin pSubpassBeginInfo)
     (cmdEndRenderPass2 commandBuffer pSubpassEndInfo)
 

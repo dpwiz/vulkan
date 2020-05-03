@@ -1,6 +1,6 @@
 {-# language CPP #-}
 module Vulkan.Extensions.VK_EXT_conditional_rendering  ( cmdBeginConditionalRenderingEXT
-                                                       , cmdWithConditionalRenderingEXT
+                                                       , cmdUseConditionalRenderingEXT
                                                        , cmdEndConditionalRenderingEXT
                                                        , ConditionalRenderingBeginInfoEXT(..)
                                                        , CommandBufferInheritanceConditionalRenderingInfoEXT(..)
@@ -141,8 +141,8 @@ cmdBeginConditionalRenderingEXT commandBuffer conditionalRenderingBegin = liftIO
 -- To just extract the pair pass '(,)' as the first argument.
 --
 -- Note that there is no inner resource
-cmdWithConditionalRenderingEXT :: forall io r . MonadIO io => CommandBuffer -> ConditionalRenderingBeginInfoEXT -> (io () -> io () -> r) -> r
-cmdWithConditionalRenderingEXT commandBuffer pConditionalRenderingBegin b =
+cmdUseConditionalRenderingEXT :: forall io r . MonadIO io => CommandBuffer -> ConditionalRenderingBeginInfoEXT -> (io () -> io () -> r) -> r
+cmdUseConditionalRenderingEXT commandBuffer pConditionalRenderingBegin b =
   b (cmdBeginConditionalRenderingEXT commandBuffer pConditionalRenderingBegin)
     (cmdEndConditionalRenderingEXT commandBuffer)
 
