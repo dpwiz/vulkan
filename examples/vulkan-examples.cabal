@@ -167,6 +167,7 @@ executable compute
   build-depends:
       JuicyPixels
     , VulkanMemoryAllocator
+    , vulkan-examples
     , base <5
     , bytestring
     , resourcet
@@ -233,6 +234,7 @@ executable hlsl
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N -eventlog
   build-depends:
       VulkanMemoryAllocator
+    , vulkan-examples
     , base <5
     , bytestring
     , containers
@@ -352,6 +354,7 @@ executable offscreen
   build-depends:
       JuicyPixels
     , VulkanMemoryAllocator
+    , vulkan-examples
     , base <5
     , bytestring
     , resourcet
@@ -427,6 +430,7 @@ executable rays
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N -eventlog
   build-depends:
       VulkanMemoryAllocator
+    , vulkan-examples
     , base <5
     , bytestring
     , colour
@@ -508,6 +512,7 @@ executable resize
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       VulkanMemoryAllocator
+    , vulkan-examples
     , base <5
     , bytestring
     , extra
@@ -631,7 +636,8 @@ executable timeline-semaphore
       ViewPatterns
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base <5
+      vulkan-examples
+    , base <5
     , resourcet
     , say
     , transformers
@@ -688,6 +694,7 @@ executable vrcube
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N -eventlog
   build-depends:
       VulkanMemoryAllocator
+    , vulkan-examples
     , base <5
     , bytestring
     , colour

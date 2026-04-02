@@ -70,6 +70,7 @@ executables:
     dependencies:
     - JuicyPixels
     - VulkanMemoryAllocator
+    - vulkan-examples
     - base <5
     - bytestring
     - resourcet
@@ -94,6 +95,7 @@ executables:
     dependencies:
     - JuicyPixels
     - VulkanMemoryAllocator
+    - vulkan-examples
     - base <5
     - bytestring
     - resourcet
@@ -110,6 +112,7 @@ executables:
     source-dirs: resize
     dependencies:
     - VulkanMemoryAllocator
+    - vulkan-examples
     - base <5
     - bytestring
     - extra
@@ -130,6 +133,7 @@ executables:
     main: Main.hs
     source-dirs: timeline-semaphore
     dependencies:
+    - vulkan-examples
     - base <5
     - resourcet
     - say
@@ -144,6 +148,7 @@ executables:
     source-dirs: hlsl
     dependencies:
     - VulkanMemoryAllocator
+    - vulkan-examples
     - base <5
     - bytestring
     - containers
@@ -170,6 +175,7 @@ executables:
     source-dirs: rays
     dependencies:
     - VulkanMemoryAllocator
+    - vulkan-examples
     - base <5
     - bytestring
     - colour
@@ -204,6 +210,7 @@ executables:
     dependencies:
     - VulkanMemoryAllocator
     - openxr
+    - vulkan-examples
     - base <5
     - bytestring
     - colour
