@@ -40,7 +40,7 @@ library:
   - nothunks >= 0.1.2
   - opentelemetry
   - resourcet >= 1.2.4
-  - sdl2 >= 2.5.2.0
+  - sdl2 >= 2.5.2.0 && < 2.5.5
   - template-haskell
   - text
   - transformers
@@ -67,7 +67,7 @@ executables:
     - extra
     - resourcet
     - say
-    - sdl2 >= 2.5.2.0
+    - sdl2 >= 2.5.2.0 && < 2.5.5
     - text
     - transformers
     - vector
@@ -131,7 +131,7 @@ executables:
     - linear
     - resourcet >= 1.2.4
     - say
-    - sdl2 >= 2.5.2.0
+    - sdl2 >= 2.5.2.0 && < 2.5.5
     - text
     - transformers
     - unliftio
@@ -166,7 +166,7 @@ executables:
     - opentelemetry
     - resourcet >= 1.2.4
     - say
-    - sdl2 >= 2.5.2.0
+    - sdl2 >= 2.5.2.0 && < 2.5.5
     - template-haskell
     - text
     - transformers
@@ -200,7 +200,7 @@ executables:
     - random
     - resourcet >= 1.2.4
     - say
-    - sdl2 >= 2.5.2.0
+    - sdl2 >= 2.5.2.0 && < 2.5.5
     - template-haskell
     - text
     - transformers
@@ -235,7 +235,7 @@ executables:
     - random
     - resourcet >= 1.2.4
     - say
-    - sdl2 >= 2.5.2.0
+    - sdl2 >= 2.5.2.0 && < 2.5.5
     - template-haskell
     - text
     - transformers

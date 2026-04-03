@@ -107,7 +107,7 @@ library
     , nothunks >=0.1.2
     , opentelemetry
     , resourcet >=1.2.4
-    , sdl2 >=2.5.2.0
+    , sdl2 >=2.5.2.0 && <2.5.5
     , template-haskell
     , text
     , th-desugar <2
@@ -240,7 +240,7 @@ executable hlsl
     , opentelemetry
     , resourcet >=1.2.4
     , say
-    , sdl2 >=2.5.2.0
+    , sdl2 >=2.5.2.0 && <2.5.5
     , template-haskell
     , text
     , transformers
@@ -442,7 +442,7 @@ executable rays
     , random
     , resourcet >=1.2.4
     , say
-    , sdl2 >=2.5.2.0
+    , sdl2 >=2.5.2.0 && <2.5.5
     , template-haskell
     , text
     , transformers
@@ -517,7 +517,7 @@ executable resize
     , linear
     , resourcet >=1.2.4
     , say
-    , sdl2 >=2.5.2.0
+    , sdl2 >=2.5.2.0 && <2.5.5
     , text
     , transformers
     , unliftio
@@ -578,7 +578,7 @@ executable sdl-triangle
     , extra
     , resourcet
     , say
-    , sdl2 >=2.5.2.0
+    , sdl2 >=2.5.2.0 && <2.5.5
     , text
     , transformers
     , vector
@@ -705,7 +705,7 @@ executable vrcube
     , random
     , resourcet >=1.2.4
     , say
-    , sdl2 >=2.5.2.0
+    , sdl2 >=2.5.2.0 && <2.5.5
     , template-haskell
     , text
     , transformers
