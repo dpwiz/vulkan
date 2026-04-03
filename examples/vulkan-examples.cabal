@@ -167,7 +167,6 @@ executable compute
   build-depends:
       JuicyPixels
     , VulkanMemoryAllocator
-    , vulkan-examples
     , base <5
     , bytestring
     , resourcet
@@ -177,6 +176,7 @@ executable compute
     , transformers
     , vector
     , vulkan
+    , vulkan-examples
     , vulkan-utils
   default-language: Haskell2010
   if os(windows)
@@ -234,7 +234,6 @@ executable hlsl
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N -eventlog
   build-depends:
       VulkanMemoryAllocator
-    , vulkan-examples
     , base <5
     , bytestring
     , containers
@@ -354,7 +353,6 @@ executable offscreen
   build-depends:
       JuicyPixels
     , VulkanMemoryAllocator
-    , vulkan-examples
     , base <5
     , bytestring
     , resourcet
@@ -364,6 +362,7 @@ executable offscreen
     , transformers
     , vector
     , vulkan
+    , vulkan-examples
     , vulkan-utils
   default-language: Haskell2010
   if os(windows)
@@ -430,7 +429,6 @@ executable rays
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N -eventlog
   build-depends:
       VulkanMemoryAllocator
-    , vulkan-examples
     , base <5
     , bytestring
     , colour
@@ -512,7 +510,6 @@ executable resize
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       VulkanMemoryAllocator
-    , vulkan-examples
     , base <5
     , bytestring
     , extra
@@ -636,14 +633,14 @@ executable timeline-semaphore
       ViewPatterns
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      vulkan-examples
-    , base <5
+      base <5
     , resourcet
     , say
     , transformers
     , unliftio
     , vector
     , vulkan
+    , vulkan-examples
     , vulkan-utils >=0.3
   default-language: Haskell2010
   if os(windows)
@@ -694,7 +691,6 @@ executable vrcube
   ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N -eventlog
   build-depends:
       VulkanMemoryAllocator
-    , vulkan-examples
     , base <5
     , bytestring
     , colour
